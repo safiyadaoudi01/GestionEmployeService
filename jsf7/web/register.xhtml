@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Connexion</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f2f2f2;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .register-container {
+                background-color: #fff;
+                border: 1px solid #e0e0e0;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                padding: 30px;
+                width: 400px;
+            }
+
+            .register-container h2 {
+                color: #333;
+                font-size: 24px;
+            }
+
+            .register-form {
+                margin-top: 20px;
+            }
+
+            .register-form input {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .register-form input[type="submit"] {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+            }
+
+            .register-form input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+
+            .alert-info {
+                background-color: #17a2b8;
+                color: #fff;
+                border: 1px solid #0f6674;
+            }
+
+            .btn-link {
+                color: #007bff;
+            }
+        </style>
+    </h:head>
+
+    <h:body>
+
+        <f:view>
+
+            <div class="register-container">
+
+                <h:form id="register_form" class="register-form">
+
+                    <h:messages id="msgs" styleClass="alert alert-info" />
+
+                    <h2>Register here</h2>
+
+                    <div class="mb-3">
+                        <h:outputLabel for="username" value="User Name" class="form-label" />
+                        <h:inputText id="username" value="#{userBean.users.userName}" class="form-control" />
+                    </div>
+
+                    <div class="mb-3">
+                        <h:outputLabel for="password" value="Password" class="form-label" />
+                        <h:inputSecret id="password" value="#{userBean.users.password}" class="form-control" />
+                    </div>
+
+                    <h:commandButton value="Register" action="#{userBean.registerUser()}" styleClass="btn btn-primary mb-3" />
+
+                    <h:link outcome="login" value="Login Page" class="btn btn-link" />
+
+                </h:form>
+
+            </div>
+
+        </f:view>
+
+    </h:body>
+</html>
